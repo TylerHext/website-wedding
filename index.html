@@ -6,39 +6,18 @@
     <title>Mathilde & Tyler</title>
     <style>
         @font-face {
-            font-family: 'Mrs Eaves OT';
+            font-family: 'eaves';
             src: url('fonts/MrsEavesOT-Italic.woff2') format('woff2'),
-                url('fonts/MrsEavesOT-Italic.woff') format('woff');
+                 url('fonts/MrsEavesOT-Italic.woff') format('woff');
             font-weight: normal;
-            font-style: italic;
-            font-display: swap;
+            font-style: normal;
         }
-        body, html {
+        body {
             margin: 0;
             padding: 0;
-            height: 100%;
-            font-family: 'Mrs Eaves OT', sans-serif;
-        }
-        .background {
-            background-image: url('images/06610035.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 100%;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
-        .background::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* 50% grey opacity */
-            z-index: 1; /* Ensure the overlay is above the background image */
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #333;
+            color: white;
         }
         nav {
             background: transparent;
@@ -50,9 +29,10 @@
             display: flex;
             justify-content: flex-end;
             z-index: 3;
+            font-family: 'eaves';
         }
         nav a {
-            color: white;
+            color: #000;
             margin: 0 15px;
             text-decoration: none;
             font-size: 1.2em;
@@ -63,189 +43,74 @@
         nav a:last-child {
             margin-right: 40px; /* Add this line */
         }
-        .content {
-            position: relative;
-            z-index: 2;
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            background-size: cover;
+            z-index: -1;
+        }
+        .main-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            height: 100vh;
+        }
+        .container {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            color: white;
-            padding-top: 11%;
-        }
-        .content h1 {
-            margin: 0;
-            font-size: 8em;
-            font-family:'Times New Roman', Times, serif;
-        }
-        .content h2 {
-            margin: 0;
+            font-family: 'eaves';
             font-size: 4em;
-            margin-bottom: -60px;
-            text-align: center;
+            color: #000;
         }
-        .content h2#main-title-prefix {
-            font-size: 3em;
-            /* margin-bottom: 0; */
-            letter-spacing: 0.8em;
-            margin-left: 200px;
+        .container-right p {
+            margin: 20px;
         }
-
-        .date {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            color: white;
-            font-size: 7em;
-            line-height: 1.5em;
-            z-index: 3;
-            font-family: 'Times New Roman', Times, serif;
+        .container-right p.name {
+            font-size: 1.3em;
         }
-        .location-state {
-            position: fixed;
-            top: 20px;
-            right: 40px;
-            color: white;
-            font-size: 2.2em;
-            line-height: 1.5em;
-            z-index: 3;
-            font-family: 'Times New Roman', Times, serif;
-            text-align: center;
+        .container-right p.date-loc {
+            font-size: 0.9em;
         }
-        .location-city {
-            position: fixed;
-            top: 20px;
-            right: 100px;
-            color: white;
-            font-size: 4em;
-            line-height: 1.5em;
-            z-index: 3;
-            font-family: 'Times New Roman', Times, serif;
-            text-align: center;
+        .container-right p.note {
+            font-size: 1em;
         }
-
-        @keyframes colorChange {
-            0% { color: white; }
-            25% { color: red; }
-            50% { color: yellow; }
-            75% { color: green; }
-            100% { color: blue; }
+        .container-left {
+            background: url('images/photobooth-1.jpg');
+            background-size: contain;
         }
-
-        .content h1:hover,
-        .content h2:hover,
-        .date:hover,
-        .location-state:hover,
-        .location-city:hover {
-            animation: colorChange 1s infinite;
-        }
-
-        .firework {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: rgb(255, 0, 251);
-            border-radius: 50%;
-            opacity: 0;
-            animation: firework 1s ease-out forwards;
-        }
-
-        @keyframes firework {
-            0% {
-                opacity: 1;
-                transform: scale(1) translate(0, 0);
-            }
-            100% {
-                opacity: 0;
-                transform: scale(2) translate(var(--x), var(--y));
-            }
-        }
-
     </style>
 </head>
 <body>
     <!-- <nav>
         <a href="#home">Home</a>
-        <a href="#about">About Us</a>
+        <a href="#about">Venue</a>
+        <a href="#activities">Activities</a>
+        <a href="#registry">Registry</a>
         <a href="#rsvp">RSVP</a>
         <a href="#contact">Contact</a>
     </nav> -->
     <div class="background"></div>
-    <div class="content">
-        <h2 id="main-title-prefix">details</h2>
-        <h1 id="main-title">coming soon...</h1>
-        <!-- <h2>November 15, 2025 - Raleigh, North Carolina</h2> -->
+    <div class="main-container">
+        <div class="container container-left">
+            <!-- Left container content -->
+        </div>
+        <div class="container container-right">
+            <p class="name">Mathilde + Tyler</p>
+            <p class="date-loc">11/25/2025 • Raleigh, NC</p>
+            <p class="note">Coming Soon</p>
+        </div>
     </div>
-    <div class="date">
-        2025<br>
-        11<br>
-        15
-    </div>
-    <div class="location-state">
-        N<br>
-        O<br>
-        R<br>
-        T<br>
-        H<br>
-        <br>
-        C<br>
-        A<br>
-        R<br>
-        O<br>
-        L<br>
-        I<br>
-        N<br>
-        A
-    </div>
-    <div class="location-city">
-        R<br>
-        A<br>
-        L<br>
-        E<br>
-        I<br>
-        G<br>
-        H
-    </div>
-    <script>
-        const title = document.getElementById('main-title');
-        let fireworkInterval;
-        let fireworksActive = false;
-
-        title.addEventListener('mouseover', (e) => {
-            if (!fireworksActive) {
-                fireworksActive = true;
-                fireworkInterval = setInterval(() => {
-                    for (let i = 0; i < 20; i++) {
-                        createFirework(e.clientX, e.clientY);
-                    }
-                }, 700); // Adjust the interval time as needed
-            } else {
-                clearInterval(fireworkInterval);
-                fireworksActive = false;
-            }
-        });
-
-        title.addEventListener('mouseout', () => {
-            clearInterval(fireworkInterval);
-            fireworksActive = false;
-        });
-
-        function createFirework(x, y) {
-            const firework = document.createElement('div');
-            firework.classList.add('firework');
-            firework.style.left = `${x}px`;
-            firework.style.top = `${y}px`;
-            firework.style.setProperty('--x', `${Math.random() * 200 - 100}px`);
-            firework.style.setProperty('--y', `${Math.random() * 200 - 100}px`);
-            firework.style.backgroundColor = getRandomColor();
-            document.body.appendChild(firework);
-
-            firework.addEventListener('animationend', () => {
-                firework.remove();
-            });
-        }
-
-        function getRandomColor() {
-            const colors = ['red', 'yellow', 'green', 'blue', 'purple', 'orange'];
-            return colors[Math.floor(Math.random() * colors.length)];
-        }
-    </script>
 </body>
 </html>
