@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Variables
-BUCKET_NAME="your-bucket-name"
-LOCAL_DIR="/path/to/your/website"
+BUCKET_NAME="www.mathildeandtyler.com"
+LOCAL_DIR="."
 
 # Sync local directory with S3 bucket
 echo "Deploying website to S3..."
