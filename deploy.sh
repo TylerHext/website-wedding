@@ -1,8 +1,15 @@
 #!/bin/bash
 
 # Variables
-BUCKET_NAME="www.mathildeandtyler.com"
-LOCAL_DIR="."
+BUCKET_NAME=${1:-${BUCKET_NAME}}
+LOCAL_DIR=${2:-${LOCAL_DIR:-"."}}
+
+# Check if BUCKET_NAME is set
+if [ -z "$BUCKET_NAME" ]; then
+  echo "Error: BUCKET_NAME is not set."
+  echo "Usage: $0 <bucket-name> [local-dir]"
+  exit 1
+fi
 
 # Sync local directory with S3 bucket
 echo "Deploying website to S3..."
