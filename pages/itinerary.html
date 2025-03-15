@@ -14,39 +14,184 @@
             justify-content: flex-start;
             background-color: white;
             margin: 0;
-            margin-bottom: 2rem;
+            overflow: hidden;
+            height: 100vh;
         }
         header h1 {
             color: rgb(0, 0, 0);
-            font-size: 5rem;
-            margin-top: 3rem;
+            font-size: 5vw;
+            margin-top: 2vh;
             font-family: 'eaves';
         }
-        .center-itinerary-text-column {
+        .main-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100vw;
+            height: 80vh;
+            padding: 2vh 2vw;
+            box-sizing: border-box;
+        }
+        .left-column, .right-column {
+            flex: 1;
+            padding: 2vh 2vw;
+            box-sizing: border-box;
+        }
+        .left-column {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            flex: 1;
+        }
+        .left-column img {
+            max-width: 45%;
+            max-height: 90%;
+            object-fit: contain;
+            margin: 0 1vw;
+        }
+        .right-column {
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
             color: rgb(0, 0, 0);
-            font-size: 2rem;
-            margin-top: 2rem;
+            font-size: 1.5vw;
+            font-family: 'eaves';
+            flex: 2;
+        }
+        .itinerary-dow-header {
+            margin: 0.5em;
+        }
+        .itinerary-event-header {
+            margin: 0.5em;
+        }
+        .itinerary-event-details {
+            margin: 0.5em;
+        }
+        .day-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 2vh;
+        }
+        .day-text, .day-image {
+            flex: 1;
+            padding: 1vh 1vw;
+            box-sizing: border-box;
+        }
+        .day-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: rgb(0, 0, 0);
+            font-size: 1.5vw;
+            font-family: 'eaves';
+        }
+        .day-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        @media (max-width: 800px) {
+            .day-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .day-text, .day-image {
+                padding: 1vh 1vw;
+            }
+            .day-text {
+                font-size: 3vw;
+            }
+        }
+        @media (max-width: 800px) {
+            .main-container {
+                flex-direction: row;
+                height: auto;
+            }
+            .left-column {
+                flex-direction: row;
+                flex-wrap: nowrap;
+            }
+            .left-column img {
+                max-width: 45%;
+                margin: 5px;
+            }
+            .right-column {
+                font-size: 3vw;
+            }
+        }
+        @media (max-width: 480px) {
+            .main-container {
+                flex-direction: row;
+                height: auto;
+            }
+            .left-column {
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: center;
+            }
+            .left-column img {
+                max-width: 45%;
+                margin: 5px;
+            }
+            .right-column {
+                font-size: 3vw;
+            }
         }
     </style>
-    </head>
-    <body>
-        <a href="../index.html" class="home-link">M&T</a>
-        <nav>
-            <a href="../index.html">Home</a>
-            <a href="itinerary.html">Itinerary</a>
-            <a href="travel.html">Travel</a>
-            <a href="registry.html">Registry</a>
-            <a href="rsvp.html">RSVP</a>
-        </nav>
-        <header>
-            <h1>Itinerary</h1>
-        </header>
-        <div class="center-itinerary-text-column">
-            <p>coming soon...</p>
+</head>
+<body>
+    <a href="../index.html" class="home-link">M&T</a>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="itinerary.html">Itinerary</a>
+        <a href="travel.html">Travel</a>
+        <a href="registry.html">Registry</a>
+        <a href="rsvp.html">RSVP</a>
+    </nav>
+    <header>
+        <h1>Itinerary</h1>
+    </header>
+    <div class="main-container">
+        <div class="left-column">
+            <img src="../images/MathildeandTyler3.jpg" alt="mathilde and tyler laughing it up">
+            <img src="../images/MathildeandTyler5.jpg" alt="booth of photos">
         </div>
-    </body>
-    </html>
+        <div class="right-column">
+            <div class="day-container">
+                <div class="day-text" style="color: white">
+                    <h2 class="itinerary-dow-header">Friday</h2>
+                    <h3 class="itinerary-event-header">Welcome Dinner</h3>
+                    <p class="itinerary-event-details">Location details...</p>
+                </div>
+                <div class="day-image" style="color: white">
+                    <img src="../images/FridayImage.jpg" alt="Friday event image">
+                </div>
+            </div>
+            <div class="day-container">
+                <div class="day-text">
+                    <h2 class="itinerary-dow-header">Saturday</h2>
+                    <h3 class="itinerary-event-header">Ceremony and Reception</h3>
+                    <p class="itinerary-event-details">Melrose Knitting Mill</p>
+                    <p class="itinerary-event-details">309 North Dawson Street</p>
+                    <p class="itinerary-event-details">Raleigh, North Carolina 27603</p>
+                </div>
+                <div class="day-image">
+                    <img src="../images/melrose-knitting-mill-historic-image.jpg" alt="Melrose Knitting Mill historic image">
+                </div>
+            </div>
+            <div class="day-container">
+                <div class="day-text" style="color: white">
+                    <h2 class="itinerary-dow-header">Sunday</h2>
+                    <h3 class="itinerary-event-header">Farewell Brunch</h3>
+                    <p class="itinerary-event-details">Location details...</p>
+                </div>
+                <div class="day-image" style="color: white">
+                    <img src="../images/SundayImage.jpg" alt="Sunday event image">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
