@@ -8,127 +8,98 @@
     <link rel="stylesheet" href="../styles.css">
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
             background-color: white;
             margin: 0;
-            overflow: hidden;
-            height: 100vh;
+            font-family: 'eaves', Arial, sans-serif;
+            min-height: 100vh;
+            overflow-y: auto;
         }
         header h1 {
             color: rgb(0, 0, 0);
-            font-size: 5vw;
-            margin-top: 2.5vh;
-            font-family: 'eaves';
+            font-size: 2.5em;
+            margin-top: 1em;
+            text-align: center;
         }
-        .main-container {
-            display: flex;
-            justify-content: space-between;
-            width: 100vw;
-            height: 80vh;
-            padding: 2vh 2vw;
-            box-sizing: border-box;
+        nav {
+            text-align: center;
+            margin-bottom: 1em;
         }
-        .left-column, .right-column {
-            flex: 1;
-            padding: 2vh 2vw;
-            box-sizing: border-box;
-        }
-        .left-column {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: nowrap;
-            flex: 1;
-        }
-        .left-column img {
-            max-width: 45%;
-            max-height: 90%;
-            object-fit: contain;
-            margin: 0 1vw;
-        }
-        .right-column {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            color: rgb(0, 0, 0);
-            font-size: 1.5vw;
-            font-family: 'eaves';
-            flex: 2;
-        }
-        .itinerary-dow-header {
-            margin-top: 0.5em;
-            margin-bottom: 0.2em;
-        }
-        .itinerary-event-header {
-            margin-top: 0.5em;
-            margin-bottom: 0.5em;
-        }
-        .itinerary-event-details {
-            margin-top: 0.2em;
-            margin-bottom: 0.2em;
-        }
-        .day-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            margin-bottom: 2vh;
-        }
-        .day-text, .day-image {
-            flex: 1;
-            padding: 1vh 1vw;
-            box-sizing: border-box;
-        }
-        .day-text {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            color: rgb(0, 0, 0);
-            font-size: 1.5vw;
-            font-family: 'eaves';
-        }
-        .day-text a {
+        nav a {
+            margin: 0 1em;
             color: black;
+            text-decoration: none;
         }
-        .day-text a:hover {
+        nav a:hover {
             color: pink;
         }
-        .day-image img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
+        .itinerary-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2em;
+            max-width: 1200px;
+            margin: 3em auto;
+            width: 90vw;
         }
-        @media (max-width: 600px) {
-            .main-container {
-                flex-direction: row;
-                height: auto;
+        .itinerary-row {
+            display: flex;
+            /* border: 1px solid #888; */
+            background: #fff;
+            align-items: center;
+            min-height: 340px;
+        }
+        .itinerary-photo {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 340px;
+            /* background: #f9f9f9; */
+            padding: 0.5em;
+        }
+        .itinerary-photo img {
+            max-width: 95%;
+            max-height: 320px;
+            object-fit: contain;
+            border-radius: 0px;
+        }
+        .itinerary-details {
+            flex: 1;
+            padding: 0.5em;
+            /* padding-left: 2em; */
+            margin-left: 2em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 1.25em;
+            color: #222;
+        }
+        .itinerary-details h3 {
+            margin: 0 0 0.3em 0;
+            font-size: 1.15em;
+        }
+        .itinerary-details strong {
+            font-size: 1.1em;
+        }
+        .itinerary-details em {
+            font-size: 0.98em;
+        }
+        @media (max-width: 700px) {
+        @media (max-width: 900px) {
+            .itinerary-grid {
+                max-width: 100vw;
+                width: 100vw;
+                margin: 1em 0;
             }
-            .left-column {
+            .itinerary-row {
                 flex-direction: column;
-                flex-wrap: nowrap;
+                min-height: unset;
             }
-            .left-column img {
-                max-width: 45%;
-                margin: 5px;
+            .itinerary-photo, .itinerary-details {
+                min-width: 0;
+                padding: 1em;
             }
-            .right-column {
-                font-size: 3vw;
-            }
-            .right-column img {
-                max-width: 75%;
-            }
-            .day-container {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .day-text, .day-image {
-                padding: 1vh 1vw;
-            }
-            .day-text {
-                font-size: 3vw;
+            .itinerary-photo img {
+                max-height: 200px;
             }
         }
     </style>
@@ -145,43 +116,37 @@
     <header>
         <h1>Itinerary</h1>
     </header>
-    <div class="main-container">
-        <div class="left-column">
-            <img src="../images/MathildeandTyler3.jpg" alt="mathilde and tyler laughing it up">
-            <img src="../images/MathildeandTyler5.jpg" alt="booth of photos">
+    <div class="itinerary-grid">
+        <div class="itinerary-row">
+            <div class="itinerary-photo">
+                <img src="../images/MathildeandTyler5.jpg" alt="Photo booth strip" style="margin-right:8px;">
+                <img src="../images/MathildeandTyler3.jpg" alt="Mathilde and Tyler laughing" style="margin-left:8px;">
+            </div>
+            <div class="itinerary-details">
+                <strong>Welcome Party<br>Friday, November 14th<br>5:00 - 8:00pm</strong>
+                <div>Debbie Randolph & Jay Gallagher Home<br>11619 Broadfield Court<br>Raleigh, NC 27617</div>
+                <div>Attire: Casual</div>
+            </div>
         </div>
-        <div class="right-column">
-            <div class="day-container">
-                <!-- <div class="day-text" style="color: white">
-                    <h2 class="itinerary-dow-header">Friday</h2>
-                    <h3 class="itinerary-event-header">Welcome Dinner</h3>
-                    <p class="itinerary-event-details">Location details...</p>
-                </div>
-                <div class="day-image" style="color: white">
-                    <img src="../images/FridayImage.jpg" alt="Friday event image">
-                </div> -->
+        <div class="itinerary-row">
+            <div class="itinerary-photo">
+                <img src="../images/melrose-knitting-mill-historic-image.jpg" alt="Melrose Knitting Mill historic image">
             </div>
-            <div class="day-container">
-                <div class="day-text">
-                    <h2 class="itinerary-dow-header">Saturday</h2>
-                    <h3 class="itinerary-event-header">Ceremony and Reception</h3>
-                    <a class="itinerary-event-details" href="https://melroseknittingmillraleigh.com/history/">Melrose Knitting Mill</a>
-                    <p class="itinerary-event-details">309 North Dawson Street</p>
-                    <p class="itinerary-event-details">Raleigh, North Carolina 27603</p>
-                </div>
-                <div class="day-image">
-                    <img src="../images/melrose-knitting-mill-historic-image.jpg" alt="Melrose Knitting Mill historic image">
-                </div>
+            <div class="itinerary-details">
+                <strong>Wedding Day<br>Saturday, November 15th<br>3:30 - 10:00pm</strong>
+                <div>Melrose Knitting Mill<br>309 North Dawson Street<br>Raleigh, NC 27603</div>
+                <div>Ceremony | 3:30pm - 4:00pm<br>Reception | 4:00pm - 10:00pm</div>
+                <div>Attire: Formal</div>
             </div>
-            <div class="day-container">
-                <!-- <div class="day-text" style="color: white">
-                    <h2 class="itinerary-dow-header">Sunday</h2>
-                    <h3 class="itinerary-event-header">Farewell Brunch</h3>
-                    <p class="itinerary-event-details">Location details...</p>
-                </div>
-                <div class="day-image" style="color: white">
-                    <img src="../images/SundayImage.jpg" alt="Sunday event image">
-                </div> -->
+        </div>
+        <div class="itinerary-row">
+            <div class="itinerary-photo">
+                <img src="../images/brunch-photo-1.jpg" alt="Farewell brunch photo">
+            </div>
+            <div class="itinerary-details">
+                <strong>Farewell Brunch<br>Sunday, November 16th<br>10:00am - 1:00pm</strong>
+                <div>Mary Grace & Stephen Sellars Home<br>7812 Harbor Drive<br>Raleigh, NC 27615</div>
+                <div>Attire: Casual</div>
             </div>
         </div>
     </div>
