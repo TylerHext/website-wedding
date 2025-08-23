@@ -47,19 +47,25 @@
             align-items: center;
             min-height: 340px;
         }
+        .photo-row .itinerary-photo {
+            flex: 1 1 0;
+        }
+        .photo-row .itinerary-photo:nth-child(2) {
+            flex: 3 2 0;
+        }
         .itinerary-photo {
             flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-width: 340px;
+            /* min-width: 340px; */
             /* background: #f9f9f9; */
             padding: 0.5em;
         }
         .itinerary-photo img {
-            max-width: 95%;
-            max-height: 320px;
-            object-fit: contain;
+            max-width: 100%;
+            max-height: 440px;
+            object-fit: cover;
             border-radius: 0px;
         }
         .itinerary-details {
@@ -69,7 +75,8 @@
             margin-left: 2em;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
+            align-items: stretch;
             font-size: 1.25em;
             color: #222;
         }
@@ -83,23 +90,45 @@
         .itinerary-details em {
             font-size: 0.98em;
         }
-        @media (max-width: 700px) {
-        @media (max-width: 900px) {
-            .itinerary-grid {
-                max-width: 100vw;
-                width: 100vw;
-                margin: 1em 0;
+        .details-flex-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 2em;
+            margin-top: 2em;
+        }
+        @media (max-width: 1000px) {
+            .photo-row {
+                gap: 0.5em;
             }
-            .itinerary-row {
-                flex-direction: column;
-                min-height: unset;
-            }
-            .itinerary-photo, .itinerary-details {
+            .itinerary-photo {
                 min-width: 0;
-                padding: 1em;
+                padding: 0.25em;
             }
-            .itinerary-photo img {
-                max-height: 200px;
+            .details-flex-row {
+                flex-direction: column;
+                gap: 1em;
+                align-items: stretch;
+            }
+        }
+        @media (max-width: 700px) {
+            .photo-row {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+            .photo-row .itinerary-photo {
+                display: none;
+            }
+            .photo-row .itinerary-photo:nth-child(2) {
+                display: flex;
+            }
+            .details-flex-row {
+                flex-direction: column;
+                gap: 1em;
+                align-items: stretch;
             }
         }
     </style>
@@ -117,31 +146,30 @@
         <h1>Itinerary</h1>
     </header>
     <div class="itinerary-grid">
-        <div class="itinerary-row">
+        <!-- Top row: three photos horizontally -->
+        <div class="itinerary-row photo-row">
             <div class="itinerary-photo">
-                <img src="../images/MathildeandTyler5.jpg" alt="Photo booth strip" style="margin-right:8px;">
-                <img src="../images/MathildeandTyler3.jpg" alt="Mathilde and Tyler laughing" style="margin-left:8px;">
+                <img src="../images/MathildeandTyler5.jpg" alt="Photo booth strip">
             </div>
+            <div class="itinerary-photo">
+                <img src="../images/melrose-knitting-mill-historic-image.jpg" alt="Melrose Knitting Mill historic image">
+            </div>
+            <div class="itinerary-photo">
+                <img src="../images/MathildeandTyler3.jpg" alt="Mathilde and Tyler laughing">
+            </div>
+        </div>
+        <!-- Second row: three event details horizontally, independent of image height -->
+        <div class="details-flex-row">
             <div class="itinerary-details">
                 <strong>Welcome Party<br>Friday, November 14th<br>5:00 - 8:00pm</strong>
                 <div>Debbie Randolph & Jay Gallagher Home<br>11619 Broadfield Court<br>Raleigh, NC 27617</div>
                 <div>Attire: Casual</div>
-            </div>
-        </div>
-        <div class="itinerary-row">
-            <div class="itinerary-photo">
-                <img src="../images/melrose-knitting-mill-historic-image.jpg" alt="Melrose Knitting Mill historic image">
             </div>
             <div class="itinerary-details">
                 <strong>Wedding Day<br>Saturday, November 15th<br>3:30 - 10:00pm</strong>
                 <div>Melrose Knitting Mill<br>309 North Dawson Street<br>Raleigh, NC 27603</div>
                 <div>Ceremony | 3:30pm - 4:00pm<br>Reception | 4:00pm - 10:00pm</div>
                 <div>Attire: Formal</div>
-            </div>
-        </div>
-        <div class="itinerary-row">
-            <div class="itinerary-photo">
-                <img src="../images/brunch-photo-1.jpg" alt="Farewell brunch photo">
             </div>
             <div class="itinerary-details">
                 <strong>Farewell Brunch<br>Sunday, November 16th<br>10:00am - 1:00pm</strong>
