@@ -37,7 +37,7 @@
             flex-direction: column;
             gap: 2em;
             max-width: 1200px;
-            margin: 3em auto;
+            margin: 2em auto;
             width: 90vw;
         }
         .itinerary-row {
@@ -50,8 +50,12 @@
         .photo-row .itinerary-photo {
             flex: 1 1 0;
         }
-        .photo-row .itinerary-photo:nth-child(2) {
+        .photo-row .itinerary-photo.itinerary-mill-img {
             flex: 3 2 0;
+            display: flex;
+        }
+        .photo-row .itinerary-photo.itinerary-grid-img {
+            display: none;
         }
         .itinerary-photo {
             flex: 1;
@@ -70,18 +74,18 @@
         }
         .itinerary-details {
             flex: 1;
-            padding: 0.5em;
+            /* padding: 0.5em; */
             /* padding-left: 2em; */
-            margin-left: 2em;
+            margin-left: 0.5em;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            align-items: stretch;
+            justify-content: center;
+            align-items: left;
             font-size: 1.25em;
             color: #222;
+            width: max-content;
         }
         .itinerary-details h3 {
-            margin: 0 0 0.3em 0;
             font-size: 1.15em;
         }
         .itinerary-details strong {
@@ -90,47 +94,71 @@
         .itinerary-details em {
             font-size: 0.98em;
         }
-        .details-flex-row {
+        .itinerary-details a {
+            color: black;
+            text-decoration: underline;
+        }
+        .itinerary-details a:hover {
+            color: pink;
+        }
+        .details-flex-container {
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: flex-start;
             gap: 2em;
             margin-top: 2em;
+            width: 100%;            
         }
-        @media (max-width: 1000px) {
-            .photo-row {
-                gap: 0.5em;
-            }
-            .itinerary-photo {
-                min-width: 0;
-                padding: 0.25em;
-            }
-            .details-flex-row {
-                flex-direction: column;
-                gap: 1em;
-                align-items: stretch;
-            }
+        .details-flex-row {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 2em;
+            margin-top: 2em;
+            width: 100%;
         }
-        @media (max-width: 700px) {
+        @media (max-width: 800px) {
             .photo-row {
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
-                align-items: center;
+                align-items: center;;
             }
             .photo-row .itinerary-photo {
                 display: none;
             }
-            .photo-row .itinerary-photo:nth-child(2) {
+            .photo-row .itinerary-photo.itinerary-grid-img {
                 display: flex;
+            }
+            .photo-row .itinerary-photo.itinerary-mill-img {
+                display: none;
             }
             .details-flex-row {
                 flex-direction: column;
                 gap: 1em;
-                align-items: stretch;
+                align-items: flex-start;
             }
+            .details-flex-container {
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                margin: 0;
+            }
+                
+            nav {
+                justify-content: center;
+                padding: 5px;
+            }
+
+            nav a {
+                margin: 0 5px;
+                font-size: 0.8em;
+            }  
         }
+         
+
     </style>
 </head>
 <body>
@@ -151,31 +179,45 @@
             <div class="itinerary-photo">
                 <img src="../images/MathildeandTyler5.jpg" alt="Photo booth strip">
             </div>
-            <div class="itinerary-photo">
-                <img src="../images/melrose-knitting-mill-historic-image.jpg" alt="Melrose Knitting Mill historic image">
+            <div class="itinerary-photo itinerary-mill-img">
+                <!-- <img src="../images/melrose-knitting-mill-historic-image.jpg" alt="Melrose Knitting Mill historic image"> -->
+                 <img src="../images/itinerary-header.jpg" alt="Melrose Knitting Mill historic image">
+            </div>
+            <div class="itinerary-photo itinerary-grid-img">
+                <img src="../images/itinerary-grid.png" alt="Itinerary grid">
             </div>
             <div class="itinerary-photo">
                 <img src="../images/MathildeandTyler3.jpg" alt="Mathilde and Tyler laughing">
             </div>
         </div>
         <!-- Second row: three event details horizontally, independent of image height -->
-        <div class="details-flex-row">
-            <div class="itinerary-details">
-                <strong>Welcome Party<br>Friday, November 14th<br>5:00 - 8:00pm</strong>
-                <div>Debbie Randolph & Jay Gallagher Home<br>11619 Broadfield Court<br>Raleigh, NC 27617</div>
-                <div>Attire: Casual</div>
+        <div class="details-flex-container">
+            <div class="details-flex-row"></div>
+            <div class="details-flex-row">
+                <div class="itinerary-details">
+                    <strong>Welcome Party<br>Friday, November 14th<br>5:00 - 8:00pm</strong>
+                    <div>Debbie Randolph & Jay Gallagher Home<br>
+                        <a href="https://maps.google.com/?q=11619+Broadfield+Court+Raleigh+NC+27617" target="_blank">11619 Broadfield Court<br>Raleigh, NC 27617</a>
+                    </div>
+                    <div>Attire: Casual</div>
+                </div>
+                <div class="itinerary-details">
+                    <strong>Wedding Day<br>Saturday, November 15th<br>3:30 - 10:00pm</strong>
+                    <div>Melrose Knitting Mill<br>
+                        <a href="https://maps.google.com/?q=309+North+Dawson+Street+Raleigh+NC+27603" target="_blank">309 North Dawson Street<br>Raleigh, NC 27603</a>
+                    </div>
+                    <div>Ceremony | 3:30pm - 4:00pm<br>Reception | 4:00pm - 10:00pm</div>
+                    <div>Attire: Formal</div>
+                </div>
+                <div class="itinerary-details">
+                    <strong>Farewell Brunch<br>Sunday, November 16th<br>10:00am - 1:00pm</strong>
+                    <div>Mary Grace & Stephen Sellars Home<br>
+                        <a href="https://maps.google.com/?q=7812+Harbor+Drive+Raleigh+NC+27615" target="_blank">7812 Harbor Drive<br>Raleigh, NC 27615</a>
+                    </div>
+                    <div>Attire: Casual</div>
+                </div>
             </div>
-            <div class="itinerary-details">
-                <strong>Wedding Day<br>Saturday, November 15th<br>3:30 - 10:00pm</strong>
-                <div>Melrose Knitting Mill<br>309 North Dawson Street<br>Raleigh, NC 27603</div>
-                <div>Ceremony | 3:30pm - 4:00pm<br>Reception | 4:00pm - 10:00pm</div>
-                <div>Attire: Formal</div>
-            </div>
-            <div class="itinerary-details">
-                <strong>Farewell Brunch<br>Sunday, November 16th<br>10:00am - 1:00pm</strong>
-                <div>Mary Grace & Stephen Sellars Home<br>7812 Harbor Drive<br>Raleigh, NC 27615</div>
-                <div>Attire: Casual</div>
-            </div>
+            <div class="details-flex-row"></div>
         </div>
     </div>
 </body>
