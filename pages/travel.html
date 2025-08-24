@@ -60,16 +60,23 @@
             color: rgb(0, 0, 0);
             font-size: 1.5vw;
             font-family: 'eaves';
-            flex: 2;
+            flex: 1;
         }
         .option-container {
             display: flex;
             flex-direction: column;
+            /* align-items: left;
+            justify-content: left; */
         }
         .option-lodging-items {
             display: flex;
             flex-direction: row;
-            justify-content:space-around;
+            justify-content:left;
+        }
+        .option-lodging-items-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
         }
         .option-activities-items {
             display: flex;
@@ -200,7 +207,9 @@
         <div class="right-column">
             <div class="option-container">
                 <h2 class="option-lodging-header">Lodging</h2>
+                
                 <div class="option-lodging-items">
+                <div class="option-lodging-items-box">
                     <div class="option-lodging-items-left">
                         <h3 class ="option-lodging-items-left-hotel-name"><a href="https://www.thelongleafhotel.com/">Longleaf Inn</a></h3>
                         <p class ="option-lodging-items-left-hotel-details">Block name: Mathilde-Tyler Wedding</p>
@@ -212,6 +221,7 @@
                         <p class ="option-lodging-items-right-hotel-details">Block name: Sellars-Hext Wedding</p>
                         <p class ="option-lodging-items-right-hotel-details">$199 - King Bed</p>
                     </div>
+                </div>
                 </div>
             </div>
             <div class="option-container">
