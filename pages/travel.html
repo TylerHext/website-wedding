@@ -12,11 +12,11 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            /* background-color: rgb(79, 77, 77); */
             background-color: white;
             margin: 0;
-            overflow: hidden;
-            height: 100vh;
+            overflow-y: auto;
+            height: auto;
+            min-height: 100vh;
         }
         header h1 {
             color: rgb(0, 0, 0);
@@ -35,23 +35,35 @@
         }
         .left-column, .right-column {
             flex: 1;
-            padding: 2vh 2vw;
+            /* padding: 2vh 2vw; */
             box-sizing: border-box;
         }
         .left-column {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             flex-wrap: nowrap;
             flex: 1;
+            margin-top: var(--left-column-top-margin, 32px); /* Adjustable top margin */
         }
         .left-column img {
             max-width: 80%;
             max-height: 80%;
-            object-fit: contain;
-            /* margin: 0 1vw; */
+            /* object-fit: contain; */
             margin: 5px;
+            /* display: block; */
+            box-sizing: border-box;
+            /* Prevent image from overflowing top of window */
+            /* margin-top: 0; */
+        }
+        /* You can adjust the top margin for the left column by changing this variable */
+        /* .left-column {
+            --left-column-top-margin: 10vw;
+        } */
+        .main-container {
+            /* Add top margin to ensure content is not hidden under browser chrome */
+            margin-top: 2vh;
         }
         .right-column {
             display: flex;
@@ -65,8 +77,8 @@
         .option-container {
             display: flex;
             flex-direction: column;
-            /* align-items: left;
-            justify-content: left; */
+            align-items: left;
+            justify-content: left;
         }
         .option-lodging-items {
             display: flex;
@@ -130,6 +142,10 @@
             display: flex;
             flex-direction: column;
             align-items: baseline;
+            gap: 3px;
+        }
+        .option-activities-items-category-header {
+            font-size: 2.5vw;
         }
         .option-activities-items-category-entry {
             font-size: 1.5vw;
@@ -173,9 +189,6 @@
             }
             .option-lodging-items-left, .option-lodging-items-right {
                 font-size: 2.5vw;
-            }
-            .option-activities-items-category-header {
-                font-size: 3.5vw;
             }
             .option-lodging-items-left-hotel-name, .option-lodging-items-right-hotel-name {
                 font-size: 3.5vw;
@@ -225,37 +238,37 @@
                 </div>
             </div>
             <div class="option-container">
-                <div class="option-activities-items">
-                    <div class="option-activities-items-category">
-                        <h2 class="option-activities-items-category-header">Activities</h2>
-                        <p class="option-activities-items-category-entry"><a href="https://ncartmuseum.org/">North Carolina Museum of Art</a></p>
-                        <p class="option-activities-items-category-entry"><a href="https://camraleigh.org/">Contemporary Art Museum Raleigh</a></p>
-                        <p class="option-activities-items-category-entry"><a href="https://www.yelp.com/biz/father-and-son-antiques-raleigh-2">Father & Son Antiques</a></p>
-                        <p class="option-activities-items-category-entry"><a href="https://nicepriceboo.com/">Nice Price Books</a></p>
-                        <p class="option-activities-items-category-entry"><a href="https://www.ncparks.gov/state-parks/william-b-umstead-state-park">Umstead Park</a></p>
-                    </div>
-                    <div class="option-activities-items-category">
-                        <h2 class="option-activities-items-category-header">Restaurants</h2>
-                        <p class="option-activities-items-category-entry"><a href="https://www.yelp.com/biz/the-roast-grill-hot-weiners-raleigh">The Roast Grill</p></a>
-                        <p class="option-activities-items-category-entry"><a href="https://www.thepit-raleigh.com/">The Pit</a></p>
-                        <p class="option-activities-items-category-entry"><a href="https://www.mecca-restaurant.com/">Mecca</a></p>
-                        <p class="option-activities-items-category-entry"><a href="https://ac-restaurants.com/beasleys/">Beasley's</a></p>
-                        <p class="option-activities-items-category-entry"><a href="https://www.gonzatacosytequila.com/">Gonza Tacos y Tequlia</a></p>
-                    </div>
-                    <div class="option-activities-items-category">
-                        <h2 class="option-activities-items-category-header">Coffee & Treats</h2>
-                        <p class="option-activities-items-category-entry"><a href="https://www.cupajoe.com/"> Cup A Joe</a></p>
-                        <p class="option-activities-items-category-entry"><a href="https://www.rebusworks.us/">Rebus Works</a></p>
-                        <p class="option-activities-items-category-entry"><a href="https://www.solacoffee.com/">SoLa</a></p>
-                        <p class="option-activities-items-category-entry"><a href="https://littlewaves.coffee/pages/old-north-durham">Cocoa Cinnamon</a></p>
-                        <p class="option-activities-items-category-entry"><a href="https://viderichocolatefactory.com/">Videri Chocolate</a></p>
-                    </div>
-                    <div class="option-activities-items-category">
-                        <h2 class="option-activities-items-category-header">Bars</h2>
-                        <p class="option-activities-items-category-entry"><a href="https://crankarmbrewing.com/">Crank Arm</a></p>
-                        <p class="option-activities-items-category-entry"><a href="https://www.yelp.com/biz/person-street-bar-raleigh">Person Street Bar</a></p>
-                    </div>
+            <div class="option-activities-items" style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 2vw; width: 100%; margin-top: 2vw; margin-bottom: 2vw;">
+                <div class="option-activities-items-category" style="grid-column: 1; grid-row: 1;">
+                    <div class="option-activities-items-category-header">Activities</div>
+                    <p class="option-activities-items-category-entry"><a href="https://ncartmuseum.org/">North Carolina Museum of Art</a></p>
+                    <p class="option-activities-items-category-entry"><a href="https://camraleigh.org/">Contemporary Art Museum Raleigh</a></p>
+                    <p class="option-activities-items-category-entry"><a href="https://www.yelp.com/biz/father-and-son-antiques-raleigh-2">Father & Son Antiques</a></p>
+                    <p class="option-activities-items-category-entry"><a href="https://nicepriceboo.com/">Nice Price Books</a></p>
+                    <p class="option-activities-items-category-entry"><a href="https://www.ncparks.gov/state-parks/william-b-umstead-state-park">Umstead Park</a></p>
                 </div>
+                <div class="option-activities-items-category" style="grid-column: 2; grid-row: 1;">
+                    <div class="option-activities-items-category-header">Restaurants</div>
+                    <p class="option-activities-items-category-entry"><a href="https://www.yelp.com/biz/the-roast-grill-hot-weiners-raleigh">The Roast Grill</a></p>
+                    <p class="option-activities-items-category-entry"><a href="https://www.thepit-raleigh.com/">The Pit</a></p>
+                    <p class="option-activities-items-category-entry"><a href="https://www.mecca-restaurant.com/">Mecca</a></p>
+                    <p class="option-activities-items-category-entry"><a href="https://ac-restaurants.com/beasleys/">Beasley's</a></p>
+                    <p class="option-activities-items-category-entry"><a href="https://www.gonzatacosytequila.com/">Gonza Tacos y Tequlia</a></p>
+                </div>
+                <div class="option-activities-items-category" style="grid-column: 1; grid-row: 2;">
+                    <div class="option-activities-items-category-header">Coffee & Treats</div>
+                    <p class="option-activities-items-category-entry"><a href="https://www.cupajoe.com/"> Cup A Joe</a></p>
+                    <p class="option-activities-items-category-entry"><a href="https://www.rebusworks.us/">Rebus Works</a></p>
+                    <p class="option-activities-items-category-entry"><a href="https://www.solacoffee.com/">SoLa</a></p>
+                    <p class="option-activities-items-category-entry"><a href="https://littlewaves.coffee/pages/old-north-durham">Cocoa Cinnamon</a></p>
+                    <p class="option-activities-items-category-entry"><a href="https://viderichocolatefactory.com/">Videri Chocolate</a></p>
+                </div>
+                <div class="option-activities-items-category" style="grid-column: 2; grid-row: 2;">
+                    <div class="option-activities-items-category-header">Bars</div>
+                    <p class="option-activities-items-category-entry"><a href="https://crankarmbrewing.com/">Crank Arm</a></p>
+                    <p class="option-activities-items-category-entry"><a href="https://www.yelp.com/biz/person-street-bar-raleigh">Person Street Bar</a></p>
+                </div>
+            </div>
             </div>
         </div>
     </div>
