@@ -8,193 +8,115 @@
     <link rel="stylesheet" href="../styles.css">
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
             background-color: white;
             margin: 0;
-            overflow-y: auto;
-            height: auto;
+            font-family: 'eaves', Arial, sans-serif;
             min-height: 100vh;
+            overflow-y: auto;
         }
         header h1 {
             color: rgb(0, 0, 0);
             font-size: 5vw;
-            margin-top: 2.5vh;
-            margin-bottom: 0;
-            font-family: 'eaves';
+            margin-top: 1em;
+            text-align: center;
         }
-        .main-container {
+        .home-link {
+            font-family: 'Times New Roman', Times, serif;
+        }
+        nav {
+            text-align: center;
+            margin-bottom: 1em;
+        }
+        nav a {
+            margin: 0 1em;
+            color: black;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .travel-grid {
             display: flex;
-            justify-content: space-between;
-            width: 100vw;
-            height: 80vh;
-            padding: 2vh 2vw;
-            box-sizing: border-box;
+            flex-direction: column;
+            gap: 2em;
+            max-width: 1200px;
+            margin: 2em auto;
+            width: 90vw;
         }
-        .left-column, .right-column {
+        .photo-row {
+            display: flex;
+            flex-direction: row;
+            gap: 2em;
+            justify-content: center;
+            align-items: center;
+        }
+        .travel-photo {
             flex: 1;
-            /* padding: 2vh 2vw; */
-            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5em;
         }
-        .left-column {
+        .travel-photo img {
+            max-width: 100%;
+            max-height: 340px;
+            object-fit: cover;
+            border-radius: 0px;
+        }
+        .details-flex-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 2em;
+            margin-top: 2em;
+            width: 100%;
+            margin-left: 5vw;
+        }
+        .details-column {
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            align-items: center;
-            flex-wrap: nowrap;
-            flex: 1;
-            margin-top: var(--left-column-top-margin, 32px); /* Adjustable top margin */
+            align-items: flex-start;
+            gap: 1em;
+            font-size: 1.25em;
+            color: #222;
+            width: 100%;
         }
-        .left-column img {
-            max-width: 80%;
-            max-height: 80%;
-            /* object-fit: contain; */
-            margin: 5px;
-            /* display: block; */
-            box-sizing: border-box;
-            /* Prevent image from overflowing top of window */
-            /* margin-top: 0; */
+        .details-column h2 {
+            font-size: 1.5em;
+            margin-bottom: 0.5em;
         }
-        /* You can adjust the top margin for the left column by changing this variable */
-        /* .left-column {
-            --left-column-top-margin: 10vw;
-        } */
-        .main-container {
-            /* Add top margin to ensure content is not hidden under browser chrome */
-            margin-top: 2vh;
-        }
-        .right-column {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            color: rgb(0, 0, 0);
-            font-size: 1.5vw;
-            font-family: 'eaves';
-            flex: 1;
-        }
-        .option-container {
-            display: flex;
-            flex-direction: column;
-            align-items: left;
-            justify-content: left;
-        }
-        .option-lodging-items {
-            display: flex;
-            flex-direction: row;
-            justify-content:left;
-        }
-        .option-lodging-items-box {
-            display: flex;
-            flex-direction: column;
-            justify-content: left;
-        }
-        .option-activities-items {
-            display: flex;
-            flex-direction: row;
-            justify-content:space-between;
-        }
-        .option-lodging-items-right {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            align-items: baseline;
-        }
-        .option-lodging-items-left {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            align-items: baseline;
-        }
-        .option-lodging-items-left ul {
-            padding-left: 0;
-        }
-        .option-lodging-items-left li {
-            padding-left: 1rem;
-        }
-        .option-lodging-items-left-hotel-name a {
+        .details-column a {
             color: black;
+            text-decoration: underline;
         }
-        .option-lodging-items-left-hotel-name a:hover {
+        .pink-link:hover {
             color: pink;
         }
-        .option-lodging-items-left-hotel-details {
-            margin: 0.4rem;
-            font-size: 1.5vw;
-        }
-        .option-lodging-items-right ul {
-            padding-left: 0;
-        }
-        .option-lodging-items-right-hotel-name a {
-            color: black;
-        }
-        .option-lodging-items-right-hotel-name a:hover {
-            color: pink;
-        }
-        .option-lodging-items-right-hotel-details {
-            margin: 0.4rem;
-        }
-        .option-lodging-items-right li {
-            padding-left: 1rem;
-        }
-        .option-activities-items-category {
-            display: flex;
-            flex-direction: column;
-            align-items: baseline;
-            gap: 3px;
-        }
-        .option-activities-items-category-header {
-            font-size: 2.5vw;
-        }
-        .option-activities-items-category-entry {
-            font-size: 1.5vw;
-            margin: 0.4rem;
-        }
-        .option-activities-items-category-entry a {
-            color: black;
-        }
-
-        .option-activities-items-category-entry a:hover {
+        .reverse-link:hover {
             transform: scaleX(-1);
             display: inline-block;
         }
-
-        @media (max-width: 600px) {
-            .main-container {
+        @media (max-width: 800px) {
+            .photo-row {
                 flex-direction: column;
+                gap: 1em;
             }
-            .left-column {
-                flex: 1;
-                padding: 0vh 0vw;
-                box-sizing: border-box;
+            .photo-row .travel-photo:not(:first-child) {
+                display: none;
             }
-            .left-column {
-                flex-direction: row;
+            .details-flex-container {
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                margin: 0;
             }
-            .left-column img {
-                max-width: 30%;
+            nav {
+                justify-content: center;
+                padding: 5px;
             }
-            .right-column {
-                flex: 2;
-                padding: 0vh 0vw;
-                box-sizing: border-box;
-            }
-            .option-activities-items-category-entry {
-                font-size: 2.5vw;
-                margin: 0.4rem;
-            }
-            .option-lodging-header {
-                font-size: 3.5vw;
-            }
-            .option-lodging-items-left, .option-lodging-items-right {
-                font-size: 2.5vw;
-            }
-            .option-lodging-items-left-hotel-name, .option-lodging-items-right-hotel-name {
-                font-size: 3.5vw;
-            }
-            .option-lodging-items-left-hotel-details, .option-lodging-items-right-hotel-details {
-                font-size: 3.5vw;
+            nav a {
+                margin: 0 5px;
+                font-size: 0.8em;
             }
         }
     </style>
@@ -211,64 +133,67 @@
     <header>
         <h1>Travel</h1>
     </header>
-    <div class="main-container">
-        <div class="left-column">
-            <img src="../images/travel-1.jpg" alt="hb chillin">
-            <img src="../images/travel-2.jpg" alt="cwahsong">
-            <img src="../images/travel-3.jpg" alt="cdmx">
+    <div class="travel-grid">
+        <!-- Top row: three photos horizontally -->
+        <div class="photo-row">
+            <div class="travel-photo">
+                <img src="../images/travel-1.jpg" alt="hb chillin">
+            </div>
+            <div class="travel-photo">
+                <img src="../images/travel-2.jpg" alt="cwahsong">
+            </div>
+            <div class="travel-photo">
+                <img src="../images/travel-3.jpg" alt="cdmx">
+            </div>
         </div>
-        <div class="right-column">
-            <div class="option-container">
-                <h2 class="option-lodging-header">Lodging</h2>
-                
-                <div class="option-lodging-items">
-                <div class="option-lodging-items-box">
-                    <div class="option-lodging-items-left">
-                        <h3 class ="option-lodging-items-left-hotel-name"><a href="https://www.thelongleafhotel.com/">Longleaf Inn</a></h3>
-                        <p class ="option-lodging-items-left-hotel-details">Block name: Mathilde-Tyler Wedding</p>
-                        <p class ="option-lodging-items-left-hotel-details">$184 - Standard King</p>
-                        <p class ="option-lodging-items-left-hotel-details">$194 - Standard Doubles</p>
-                    </div>
-                    <div class="option-lodging-items-right">
-                        <h3 class ="option-lodging-items-right-hotel-name"><a href="https://www.hyatt.com/hyatt-house/en-US/rduxd-hyatt-house-raleigh-downtown-seaboard-station">Hyatt House Raleigh Downtown</a></h3>
-                        <p class ="option-lodging-items-right-hotel-details">Block name: Sellars-Hext Wedding</p>
-                        <p class ="option-lodging-items-right-hotel-details">$199 - King Bed</p>
-                    </div>
+        <!-- Second row: three columns of details -->
+        <div class="details-flex-container">
+            <div class="details-column">
+                <h2>Lodging</h2>
+                <div>
+                    <strong><a href="https://www.thelongleafhotel.com/" class="pink-link">Longleaf Inn</a></strong><br>
+                    Block name: Mathilde-Tyler Wedding<br>
+                    $184 - Standard King<br>
+                    $194 - Standard Doubles
                 </div>
+                <div>
+                    <strong><a href="https://www.hyatt.com/hyatt-house/en-US/rduxd-hyatt-house-raleigh-downtown-seaboard-station" class="pink-link">Hyatt House Raleigh Downtown</a></strong><br>
+                    Block name: Sellars-Hext Wedding<br>
+                    $199 - King Bed
                 </div>
             </div>
-            <div class="option-container">
-            <div class="option-activities-items" style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 2vw; width: 100%; margin-top: 2vw; margin-bottom: 2vw;">
-                <div class="option-activities-items-category" style="grid-column: 1; grid-row: 1;">
-                    <div class="option-activities-items-category-header">Activities</div>
-                    <p class="option-activities-items-category-entry"><a href="https://ncartmuseum.org/">North Carolina Museum of Art</a></p>
-                    <p class="option-activities-items-category-entry"><a href="https://camraleigh.org/">Contemporary Art Museum Raleigh</a></p>
-                    <p class="option-activities-items-category-entry"><a href="https://www.yelp.com/biz/father-and-son-antiques-raleigh-2">Father & Son Antiques</a></p>
-                    <p class="option-activities-items-category-entry"><a href="https://nicepriceboo.com/">Nice Price Books</a></p>
-                    <p class="option-activities-items-category-entry"><a href="https://www.ncparks.gov/state-parks/william-b-umstead-state-park">Umstead Park</a></p>
+            <div class="details-column">
+                <h2>Activities</h2>
+                <div>
+                    <a href="https://ncartmuseum.org/" class="reverse-link">North Carolina Museum of Art</a><br>
+                    <a href="https://camraleigh.org/" class="reverse-link">Contemporary Art Museum Raleigh</a><br>
+                    <a href="https://www.yelp.com/biz/father-and-son-antiques-raleigh-2" class="reverse-link">Father & Son Antiques</a><br>
+                    <a href="https://nicepriceboo.com/" class="reverse-link">Nice Price Books</a><br>
+                    <a href="https://www.ncparks.gov/state-parks/william-b-umstead-state-park" class="reverse-link">Umstead Park</a>
                 </div>
-                <div class="option-activities-items-category" style="grid-column: 2; grid-row: 1;">
-                    <div class="option-activities-items-category-header">Restaurants</div>
-                    <p class="option-activities-items-category-entry"><a href="https://www.yelp.com/biz/the-roast-grill-hot-weiners-raleigh">The Roast Grill</a></p>
-                    <p class="option-activities-items-category-entry"><a href="https://www.thepit-raleigh.com/">The Pit</a></p>
-                    <p class="option-activities-items-category-entry"><a href="https://www.mecca-restaurant.com/">Mecca</a></p>
-                    <p class="option-activities-items-category-entry"><a href="https://ac-restaurants.com/beasleys/">Beasley's</a></p>
-                    <p class="option-activities-items-category-entry"><a href="https://www.gonzatacosytequila.com/">Gonza Tacos y Tequlia</a></p>
-                </div>
-                <div class="option-activities-items-category" style="grid-column: 1; grid-row: 2;">
-                    <div class="option-activities-items-category-header">Coffee & Treats</div>
-                    <p class="option-activities-items-category-entry"><a href="https://www.cupajoe.com/"> Cup A Joe</a></p>
-                    <p class="option-activities-items-category-entry"><a href="https://www.rebusworks.us/">Rebus Works</a></p>
-                    <p class="option-activities-items-category-entry"><a href="https://www.solacoffee.com/">SoLa</a></p>
-                    <p class="option-activities-items-category-entry"><a href="https://littlewaves.coffee/pages/old-north-durham">Cocoa Cinnamon</a></p>
-                    <p class="option-activities-items-category-entry"><a href="https://viderichocolatefactory.com/">Videri Chocolate</a></p>
-                </div>
-                <div class="option-activities-items-category" style="grid-column: 2; grid-row: 2;">
-                    <div class="option-activities-items-category-header">Bars</div>
-                    <p class="option-activities-items-category-entry"><a href="https://crankarmbrewing.com/">Crank Arm</a></p>
-                    <p class="option-activities-items-category-entry"><a href="https://www.yelp.com/biz/person-street-bar-raleigh">Person Street Bar</a></p>
+                <h2>Restaurants</h2>
+                <div>
+                    <a href="https://www.yelp.com/biz/the-roast-grill-hot-weiners-raleigh" class="reverse-link">The Roast Grill</a><br>
+                    <a href="https://www.thepit-raleigh.com/" class="reverse-link">The Pit</a><br>
+                    <a href="https://www.mecca-restaurant.com/" class="reverse-link">Mecca</a><br>
+                    <a href="https://ac-restaurants.com/beasleys/" class="reverse-link">Beasley's</a><br>
+                    <a href="https://www.gonzatacosytequila.com/" class="reverse-link">Gonza Tacos y Tequlia</a>
                 </div>
             </div>
+            <div class="details-column">
+                <h2>Coffee & Treats</h2>
+                <div>
+                    <a href="https://www.cupajoe.com/" class="reverse-link">Cup A Joe</a><br>
+                    <a href="https://www.rebusworks.us/" class="reverse-link">Rebus Works</a><br>
+                    <a href="https://www.solacoffee.com/" class="reverse-link">SoLa</a><br>
+                    <a href="https://littlewaves.coffee/pages/old-north-durham" class="reverse-link">Cocoa Cinnamon</a><br>
+                    <a href="https://viderichocolatefactory.com/" class="reverse-link">Videri Chocolate</a>
+                </div>
+                <h2>Bars</h2>
+                <div>
+                    <a href="https://crankarmbrewing.com/" class="reverse-link">Crank Arm</a><br>
+                    <a href="https://www.yelp.com/biz/person-street-bar-raleigh" class="reverse-link">Person Street Bar</a>
+                </div>
             </div>
         </div>
     </div>
